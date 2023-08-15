@@ -4,9 +4,6 @@ import sorts
 bookshelf = utils.load_books('books_small.csv')
 for book in bookshelf:
   print(book['title'])
-print(ord("a"))
-print(ord(" "))
-print(ord("A"))
  
 def by_title_ascending(book_a, book_b):
   return book_a['title_lower'] > book_b['title_lower']
@@ -17,3 +14,7 @@ def by_author_ascending(book_a, book_b):
   return book_a['author_lower'] > book_b['author_lower']
   bookshelf_v1 = bookshelf
   sort_2 = sorts.bubble_sort(bookshelf_v1, by_author_ascending)
+bookshelf_v2 = bookshelf.copy()
+sorts.quicksort(bookshelf_v2, 0, len(bookshelf_v2) - 1, by_author_ascending)
+def by_total_length(book_a, book_b):
+  return len(book_a['author_lower']) + len(book_a['title_lower']) > len(book_b['author_lower']) + len(book_b['title_lower'])
