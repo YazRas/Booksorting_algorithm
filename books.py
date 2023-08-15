@@ -1,7 +1,7 @@
-import utils
+import utility
 import sorts
-
-bookshelf = utils.load_books('books_small.csv')
+#Import the other two files
+bookshelf = utility.load_books(#Insert file path of csv here.)
 for book in bookshelf:
   print(book['title'])
  
@@ -18,3 +18,6 @@ bookshelf_v2 = bookshelf.copy()
 sorts.quicksort(bookshelf_v2, 0, len(bookshelf_v2) - 1, by_author_ascending)
 def by_total_length(book_a, book_b):
   return len(book_a['author_lower']) + len(book_a['title_lower']) > len(book_b['author_lower']) + len(book_b['title_lower'])
+long_bookshelf = utility.load_books('books_large.csv')
+sort3 = sorts.bubble_sort(long_bookshelf, by_total_length)
+sort4 = sorts.quicksort(long_bookshelf, 0, len(long_bookshelf) - 1, by_total_length)
