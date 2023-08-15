@@ -15,3 +15,5 @@ def by_title_ascending(book_a, book_b):
     print(book['title'])
 def by_author_ascending(book_a, book_b):
   return book_a['author_lower'] > book_b['author_lower']
+  bookshelf_v1 = bookshelf
+  sort_2 = sorts.bubble_sort(bookshelf_v1, by_author_ascending)
